@@ -30,6 +30,7 @@ fun bai2 () {
     println("Hiệu: " + (a - b))
     println("Tích: " + (a * b))
     println("Thương: " + (a / b))
+
 }
 class lab1 {
 }
