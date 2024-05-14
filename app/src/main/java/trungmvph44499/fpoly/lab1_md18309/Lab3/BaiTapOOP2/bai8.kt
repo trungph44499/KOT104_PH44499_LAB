@@ -1,19 +1,12 @@
-package trungmvph44499.fpoly.lab1_md18309.Lab3
+package trungmvph44499.fpoly.lab1_md18309.Lab3.BaiTapOOP2
 
-import java.util.*
-
-class SinhVien(val hoTen: String, val tuoi: Int, val lop: String)
-
-data class TheMuon(val maPhieuMuon: String, val ngayMuon: Int, val hanTra: Int, val soHieuSach: String, val sinhVien: SinhVien)
-
+import java.util.Scanner
 class QuanLyTheMuon {
     val danhSachTheMuon: MutableList<TheMuon> = mutableListOf()
-
     fun themTheMuon(theMuon: TheMuon) {
         danhSachTheMuon.add(theMuon)
         println("Thêm thẻ mượn thành công!")
     }
-
     fun xoaTheMuon(maPhieuMuon: String) {
         val theMuon = danhSachTheMuon.find { it.maPhieuMuon == maPhieuMuon }
         if (theMuon != null) {
@@ -23,21 +16,20 @@ class QuanLyTheMuon {
             println("Không tìm thấy thẻ mượn có mã phiếu mượn $maPhieuMuon")
         }
     }
-
     fun hienThiThongTinTheMuon() {
         if (danhSachTheMuon.isEmpty()) {
             println("- Danh sách thẻ mượn rỗng.")
         } else {
-            println("- 2Danh sách thẻ mượn:")
+            println("- Danh sách thẻ mượn:")
             for (theMuon in danhSachTheMuon) {
                 println("Mã phiếu mượn: ${theMuon.maPhieuMuon}")
                 println("Ngày mượn: ${theMuon.ngayMuon}")
                 println("Hạn trả: ${theMuon.hanTra}")
                 println("Số hiệu sách: ${theMuon.soHieuSach}")
                 println("Thông tin sinh viên:")
-                println("- Họ tên: ${theMuon.sinhVien.hoTen}")
-                println("- Tuổi: ${theMuon.sinhVien.tuoi}")
-                println("- Lớp: ${theMuon.sinhVien.lop}")
+                println("- Họ tên: ${theMuon.hoTen}")
+                println("- Tuổi: ${theMuon.tuoi}")
+                println("- Lớp: ${theMuon.lop}")
                 println()
             }
         }
@@ -78,8 +70,7 @@ fun main() {
                 print("Nhập lớp sinh viên: ")
                 val lop = scanner.nextLine()
 
-                val sinhVien = SinhVien(hoTen, tuoi, lop)
-                val theMuon = TheMuon(maPhieuMuon, ngayMuon, hanTra, soHieuSach, sinhVien)
+                val theMuon = TheMuon(hoTen,tuoi,lop,maPhieuMuon, ngayMuon, hanTra, soHieuSach )
                 quanLyTheMuon.themTheMuon(theMuon)
             }
             2 -> {
